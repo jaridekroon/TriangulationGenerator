@@ -21,8 +21,15 @@ public class main {
         Vertex[] random = randGen.generate();
         //PointSetLogger.logPointSet(random, true);
 
+        Vertex[] issue = new Vertex[] {
+                new Vertex(25,115,3),
+                new Vertex(69,110,1),
+                new Vertex(173,289,9),
+                new Vertex(194,298,6)
+        };
+
         /** Compute triangulation (either randomized incremental (ran = true) or incremental (ran = false) */
-        boolean ran = true;
+        boolean ran = false;
         Delaunay d;
         Triangulation t;
         if(ran) {

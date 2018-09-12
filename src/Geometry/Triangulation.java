@@ -52,12 +52,15 @@ public class Triangulation {
                     Vertex i = e.getSecond();
                     Edge hj = new Edge(h,temp[j]);
                     Edge ij = new Edge(i,temp[j]);
-                    TriangleCarrier next = new TriangleCarrier(h,temp[j],i);
+                    TriangleCarrier next = new TriangleCarrier(h,i,temp[j]);
                     for(Edge f : edge_temp) {
-                        if(!e.equals(f)) {
+                        if(!f.equals(e) && !f.equals(hj) && !f.equals(ij)) {
                             /** Edges should not intersect, interior of new triangle should be empty */
-                            if(f.intersection(hj) != null || f.intersection(ij) != null || next.isStrictlyInside(f.getFirst()) || next.isStrictlyInside(f.getSecond())) {
-                                /** Edge not visible, do not create triangle */
+                            if((f.intersection(hj) != null) ||
+                                    (f.intersection(ij) != null) ||
+                                    (next.isStrictlyInside(f.getFirst()) && !(f.getFirst().equals(h) || f.getFirst().equals(i) || f.getFirst().equals(temp[j]))) ||
+                                    (next.isStrictlyInside(f.getSecond())) && !(f.getSecond().equals(h) || f.getSecond().equals(i) || f.getSecond().equals(temp[j]))) {
+                                /** Edge not visible or interior not empty, do not create triangle */
                                 valid = false;
                                 break;
                             }
