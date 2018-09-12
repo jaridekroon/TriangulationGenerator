@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/VoronoiGame.iml" filepath="$PROJECT_DIR$/VoronoiGame.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TriangulationGenerator.iml" filepath="$PROJECT_DIR$/TriangulationGenerator.iml" />
     </modules>
   </component>
 </project>
