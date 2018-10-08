@@ -193,9 +193,10 @@ public class Delaunay {
         while(flipFound) {
             flipFound = false;
             List<Edge> li = new ArrayList<>(tri.getEdges());
-            Collections.sort(li, (a, b) -> a.getFirst().getID() < b.getFirst().getID() ? -1
-                    : a.getFirst().getID() > b.getFirst().getID() ? 1
-                    : a.getSecond().getID() < b.getSecond().getID() ? -1 : 0);
+            Collections.sort(li, (a, b) -> a.low() < b.low() ? -1
+                    : a.low() > b.low() ? 1
+                    : a.high() < b.high() ? -1
+                    : a.high() > b.high() ? 1 : 0);
             for(Edge e : li) {
                 if(e.getTriangles().size() != 2) {
                     //edge is on boundary, always legal

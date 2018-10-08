@@ -164,4 +164,14 @@ public class Triangulation {
         }
         return null;
     }
+
+    public void print() {
+        System.out.println(vertices.size() + " " + triangles.size());
+        for(Vertex v : vertices) {
+            System.out.println(v.getID() + " " + (int)v.getX() + " " + (int)v.getY());
+        }
+        for(TriangleCarrier t : triangles) {
+            System.out.println(t.getA().getID() + " " + t.getB().getID() + " " + t.getC().getID());
+        }
+    }
 }

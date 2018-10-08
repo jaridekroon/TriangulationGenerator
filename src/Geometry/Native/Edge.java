@@ -19,13 +19,14 @@ public class Edge {
         triangles = new ArrayList<TriangleCarrier>();
     }
 
-    public Vertex getFirst() {
-        return this.first;
-    }
+    public Vertex getFirst() { return this.first; }
 
     public Vertex getSecond() {
         return this.second;
     }
+
+    public int low() {return Math.min(this.getFirst().getID(),this.getSecond().getID());}
+    public int high() {return Math.max(this.getFirst().getID(),this.getSecond().getID());}
 
     public ArrayList<TriangleCarrier> getTriangles() {
         return this.triangles;
